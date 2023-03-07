@@ -31,17 +31,13 @@ h1 {
   font-size: 1.2rem;
 }
 
-p,
-a {
-  font-size: 0.8rem;
-}
-
 .container {
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: start;
+  align-content: center;
 }
 
 .card {
@@ -51,14 +47,39 @@ a {
 }
 
 .card-body {
-  padding: 1.2rem;
+  padding: 1.3rem;
 }
 
 .card-header {
-  height: 17rem;
-  width: 17rem;
   margin-bottom: 1.3rem;
   overflow: hidden;
+  position: relative;
+}
+
+.card-header .icon-view-overlay {
+  display: none;
+  color: #fff;
+  height: 2rem;
+  width: 2.4rem;
+  position: absolute;
+  top: 43%;
+  left: 43%;
+}
+
+.card-header:hover::before {
+  background-color: var(--primary-cyan);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  content: "";
+  border-radius: 0.4rem;
+  opacity: 40%;
+}
+
+.card-header:hover .icon-view-overlay {
+  display: block;
 }
 
 .nft-img {
@@ -73,7 +94,7 @@ a {
 }
 
 .nft-description {
-  padding-right: 2rem;
+  padding-right: 1rem;
   line-height: 1.5rem;
   font-weight: var(--font-weight-light);
   color: var(--primary-soft-blue);
@@ -92,15 +113,75 @@ a {
 .nft-price,
 .nft-time {
   display: inherit;
+
   text-align: center;
   align-items: center;
 }
 
 .icon {
   margin-right: 0.4rem;
+  display: inherit;
 }
 
 .nft-price p {
   color: var(--primary-cyan);
   font-weight: var(--font-weight-heavy);
+}
+
+.card-line {
+  background-color: var(--secondary-dark-blue-line);
+  border: none;
+  height: 1px;
+  margin-bottom: 1rem;
+}
+
+.nft-creation {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: flex-start;
+  margin-bottom: 0.9rem;
+}
+
+.profile-img {
+  width: 1.9rem;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  margin-right: 0.9rem;
+}
+
+.profile-name {
+  color: var(--primary-soft-blue);
+  font-weight: var(--font-weight-light);
+  font-size: 0.9rem;
+}
+
+.profile-link {
+  margin-left: 0.3rem;
+  color: #fff;
+  text-decoration: none;
+  font-weight: var(--font-weight-light);
+  font-size: 0.9rem;
+}
+
+.nft-title:hover,
+.nft-title:active,
+.profile-link:active,
+.profile-link:hover {
+  color: var(--primary-cyan);
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 500px) {
+  .card {
+    width: 325px;
+  }
+
+  .nft-price,
+  .nft-time {
+    font-size: 0.9rem;
+  }
+  .nft-creation > * {
+    font-size: 0.9rem;
+  }
 }
